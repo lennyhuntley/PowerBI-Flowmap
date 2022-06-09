@@ -10,7 +10,7 @@ declare var __lavaBuildMap;
 export interface IMapElement {
   forest: boolean,
   label: boolean,
-  road: "color" | "gray" | 'gray_label' | "hidden",
+  road: string,
   icon: boolean,
   area: boolean,
   building: boolean,
@@ -19,7 +19,7 @@ export interface IMapElement {
 }
 
 export interface IMapControl {
-  type: 'hidden' | 'aerial' | 'road' | 'grayscale' | 'canvasDark' | 'canvasLight',
+  type: string,
   lang: string,
   pan: boolean,
   zoom: boolean
@@ -43,18 +43,19 @@ export function pixel(map: Microsoft.Maps.Map, loc: ILocation, ref?: Microsoft.M
 }
 
 export class MapFormat implements IMapFormat {
-  type = 'road' as 'aerial' | 'road' | 'grayscale' | 'canvasDark' | 'canvasLight';
-  lang = 'default';
+  type = 'canvasLight';
+  lang = 'en-US';
   pan = true;
   zoom = true;
   city = false;
-  road = "color" as "color" | "gray" | 'gray_label' | "hidden";
+  road = "hidden";
   label = true;
   forest = true;
   icon = false;
   building = false;
   area = false;
   scale = false;
+ 
 
   public static build(...fmts: any[]): MapFormat {
     var ret = new MapFormat();

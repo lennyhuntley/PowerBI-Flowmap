@@ -3,7 +3,7 @@ import { Setting } from '../pbi/numberFormat';
 
 export class Format {
     legend = {
-        show: true,
+        show: false,
         position: 'top' as 'top' | 'bot',
         fontSize: 12,
         color: true,
@@ -24,13 +24,13 @@ export class Format {
         customize: true,
         item: 2,
         scale: 'linear' as 'linear' | 'log' | 'none',
-        min: 2,
-        max: 10,
+        min: 1,
+        max: 4,
         unit: null as number//depends
     };
 
     color = {
-        item: { solid: { color: '#01B8AA' } },
+        item: { solid: { color: '#808080' } },
         min: { solid: { color: '#99e3dd' } },
         max: { solid: { color: '#015c55' } },
         autofill: false,
@@ -52,9 +52,9 @@ export class Format {
 
     bubble = {
         for: null as 'none' | 'origin' | 'dest' | 'both',//depends
-        slice: null as boolean,//depends
-        bubbleColor: { solid: { color: '#888888' } },
-        scale: 25,
+        slice: false as boolean,//depends
+        bubbleColor: { solid: { color: '#FF3939' } },
+        scale: 20,
         label: 'none' as 'none' | 'all' | 'manual' | 'hide',
         labelOpacity: 50,
         labelColor: { solid: { color: '#888888' } }

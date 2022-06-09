@@ -16,6 +16,7 @@ import { selex } from "../lava/d3";
 import { MapFormat, ILocation } from "../lava/bingmap";
 import * as app from '../lava/flowmap/app';
 import { keys, sum } from "d3";
+import { fitOptions } from "../lava/bingmap/converter";
 
 type Role = 'Origin' | 'Dest' | 'width' | 'color' | 'OLati' | 'OLong' | 'DLati' | 'DLong' | 'OName' | 'DName' | 'Tooltip' | 'Label';
 type Read<T> = Func<number, T>;
@@ -351,9 +352,7 @@ export class Visual implements IVisual {
             this._inited = true;
         }
         else {
-            if (ctx.isResizeVisualUpdateType(options)) {
-                return;
-            }
+           
             const config = this._cfg = this._config(), fmt = ctx.fmt;
             if (ctx.dirty()) {
                 if (fmt.style.dirty()) {
